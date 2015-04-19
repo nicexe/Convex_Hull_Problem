@@ -9,5 +9,5 @@ find_package(GLUT REQUIRED)
 include_directories(${GLUT_INCLUDE_DIR})
 
 set(SOURCE_FILES main.cpp)
-add_executable(Convex_Hull_Problem ${SOURCE_FILES} menu.h menu.cpp visualOutput.h visualOutput.cpp grahamScan.h grahamScan.cpp giftWrapping.h giftWrapping.cpp divideAndConquer.h divideAndConquer.cpp)
+add_executable(Convex_Hull_Problem ${SOURCE_FILES} menu.h menu.cpp visualOutput.h visualOutput.cpp grahamScan.h grahamScan.cpp giftWrapping.h giftWrapping.cpp divideAndConquer.h divideAndConquer.cpp heapSort.h heapSort.cpp)
 target_link_libraries(Convex_Hull_Problem ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
