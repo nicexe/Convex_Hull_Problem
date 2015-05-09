@@ -5,7 +5,7 @@
 #include <iostream>
 #include "pointSet.h"
 #include "global.h"
-#include "miscNew.h"
+#include "misc.h"
 
 void pointSetMenu()
 {

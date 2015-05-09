@@ -2,7 +2,7 @@
 // Created by Nicolas Tsagarides on 4/19/15.
 //
 
-#include "miscNew.h"
+#include "misc.h"
 #include <iostream>
 
 std::string userInput()

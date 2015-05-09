@@ -9,7 +9,7 @@
 #define CONVEX_HULL_PROBLEM_HEAPSORT_H
 
 
-class HeapSortNew
+class HeapSort
 {
 };
 
