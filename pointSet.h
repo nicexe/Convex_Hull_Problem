@@ -1,0 +1,14 @@
+//
+// Created by Nicolas Tsagarides on 5/9/15.
+//
+
+#ifndef CONVEX_HULL_PROBLEM_POINTSET_H
+#define CONVEX_HULL_PROBLEM_POINTSET_H
+
+#endif //CONVEX_HULL_PROBLEM_POINTSET_H
+
+static bool pointSetAvailable = false;
+
+void pointSetMenu();
+void fillWithUserPoints(unsigned long long);
+void fillWithRandomPoints(unsigned long long);

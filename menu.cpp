@@ -3,12 +3,13 @@
 //
 
 #include "menu.h"
+#include "miscNew.h"
 
-int menu()
+std::string menu()
 {
     std::string option = "";
     bool firstTime = true;
-    while (option !="0" && option !="1" && option !="2" && option !="3")
+    while (option != "0" && option != "1" && option != "2" && option != "3" && option != "x" && option != "X")
     {
         if (!firstTime)
         {
@@ -19,27 +20,21 @@ int menu()
         firstTime = false;
     }
 
-    return (std::stoi(option));
+    return (option);
 }
 
 void showMenu()
 {
     std::cout << std::endl <<
-    "Select an option from below:\n\n" <<
+            "Select an option from below:\n\n" <<
 
-    "    1: Graham Scan Algorithm\n" <<
-    "    2: Gift Wrapping Algorithm\n" <<
-    "    3: Divide and Conquer Algorithm\n" <<
-    "    --\n" <<
-    "    0: Exit\n\n" <<
+            "    0: Manage point-set\n" <<
+            "    --\n" <<
+            "    1: Graham Scan Algorithm\n" <<
+            "    2: Gift Wrapping Algorithm\n" <<
+            "    3: Divide and Conquer Algorithm\n" <<
+            "    --\n" <<
+            "    X: Exit\n\n" <<
 
-    "Option: ";
-}
-
-std::string userInput()
-{
-    std::string input;
-    getline(std::cin, input);
-
-    return (input);
+            "Option: ";
 }

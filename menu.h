@@ -8,6 +8,5 @@
 
 #endif //CONVEX_HULL_PROBLEM_MENU_H
 
-int menu();
+std::string menu();
 void showMenu();
-std::string userInput();
