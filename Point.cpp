@@ -10,6 +10,12 @@ Point::Point(double newX, double newY)
     y = newY;
 }
 
+Point::Point()
+{
+    x = 0.0;
+    y = 0.0;
+}
+
 double Point::getX() const
 {
     return x;

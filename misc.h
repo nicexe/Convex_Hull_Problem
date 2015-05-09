@@ -10,4 +10,4 @@
 #endif //CONVEX_HULL_PROBLEM_MISC_H
 
 std::string userInput();
-
+bool is_number(const std::string& s);

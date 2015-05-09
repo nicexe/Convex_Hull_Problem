@@ -10,5 +10,6 @@
 static bool pointSetAvailable = false;
 
 void pointSetMenu();
-void fillWithUserPoints(unsigned long long);
-void fillWithRandomPoints(unsigned long long);
+void fillWithUserPoints();
+void fillWithRandomPoints();
+void printPointSet();
