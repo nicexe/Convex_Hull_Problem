@@ -6,6 +6,10 @@
 #include "pointSet.h"
 #include "global.h"
 #include "misc.h"
+#include <random>
+
+double lowerBound = 0;
+double upperBound = 600;
 
 void pointSetMenu()
 {
@@ -39,7 +43,8 @@ void pointSetMenu()
 
             printDataSet << "    1: Enter a new point-set\n" <<
                             "    2: Generate a new point-set with random values\n" <<
-                            "    --\n" << "    X: Cancel\n\n" <<
+                            "    --\n" <<
+                            "    X: Go back\n\n" <<
 
             "Option: ";
 
@@ -109,7 +114,7 @@ void fillWithUserPoints()
                 std::cout << "\nInvalid input\n";
             }
 
-            std::cout << "\nPoint #" << i << ": x = ";
+            std::cout << "\nPoint #" << (i+1) << ": x = ";
             input = userInput();
 
             try
@@ -147,7 +152,7 @@ void fillWithUserPoints()
                 std::cout << "\nInvalid input\n";
             }
 
-            std::cout << "Point #" << i << ": y = ";
+            std::cout << "Point #" << (i+1) << ": y = ";
             input = userInput();
 
             try
@@ -180,6 +185,9 @@ void fillWithUserPoints()
 
 void fillWithRandomPoints()
 {
+    std::uniform_real_distribution<double> unif(lowerBound, upperBound);
+    std::default_random_engine dre;
+
     unsigned long long numberOfPoints;
     std::string input = "a";
     bool firstRun = true;
@@ -200,7 +208,13 @@ void fillWithRandomPoints()
     numberOfPoints = std::stoull(input);
     p.clear();
 
-    //TODO generate points
+    for (unsigned long long i = 0; i < numberOfPoints; i++)
+    {
+        double tempX = unif(dre);
+        double tempY = unif(dre);
+        Point temp = Point(tempX, tempY);
+        p.push_back(temp);
+    }
 }
 
 void printPointSet()
@@ -210,7 +224,7 @@ void printPointSet()
 
     for (unsigned long long i=0; i<p.size(); i++)
     {
-        std::cout << "\nPoint #" << i << "\nx = " << p.at(i).getX() << "\ny = " << p.at(i).getY() << std::endl;
+        std::cout << "\nPoint #" << (i+1) << "\nx = " << p.at(i).getX() << "\ny = " << p.at(i).getY() << std::endl;
     }
 
     std::cout << std::endl;
