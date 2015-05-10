@@ -11,3 +11,4 @@
 
 std::string userInput();
 bool is_number(const std::string& s);
+bool is_double(const std::string& s);

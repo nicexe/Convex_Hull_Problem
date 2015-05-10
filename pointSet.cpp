@@ -26,13 +26,13 @@ void pointSetMenu()
             std::string printDataSet;
             if (pointSetAvailable)
             {
-                std::cout << "\nThere is an already existing point-set.";
+                std::cout << "\nThere is an already existing point-set.\n";
                 printDataSet = "    0: Print existing point-set\n    --\n";
             }
             else
             {
                 std::cout << "There is no existing point-set. You need to set a new one.\n";
-                printDataSet = "\n";
+                printDataSet = "";
             }
 
             std::cout << "Select an option from below:\n\n" <<
@@ -106,7 +106,7 @@ void fillWithUserPoints()
         {
             if (!firstRun)
             {
-                std::cout << "\nInvalid input";
+                std::cout << "\nInvalid input\n";
             }
 
             std::cout << "\nPoint #" << i << ": x = ";
@@ -115,17 +115,21 @@ void fillWithUserPoints()
             try
             {
                 num = std::stod(input);             // trying to convert a string to a double
+                if (!is_double(input))
+                {
+                    throw std::invalid_argument("Invalid syntax.");
+                }
                 temp.setX(num);
                 isDouble = true;
             }
             catch (std::invalid_argument e)         // catching invalid argument situations
             {
-                std::cout << e.what() << std::endl;
+                std::cout << e.what();
                 isDouble = false;
             }
             catch (std::out_of_range e)             // catching out of range situations
             {
-                std::cout << e.what() << std::endl;
+                std::cout << e.what();
                 isDouble = false;
             }
 
@@ -140,26 +144,30 @@ void fillWithUserPoints()
         {
             if (!firstRun)
             {
-                std::cout << "\nInvalid input";
+                std::cout << "\nInvalid input\n";
             }
 
-            std::cout << "\nPoint #" << i << ": y = ";
+            std::cout << "Point #" << i << ": y = ";
             input = userInput();
 
             try
             {
                 num = std::stod(input);             // trying to convert a string to a double
+                if (!is_double(input))
+                {
+                    throw std::invalid_argument("Invalid syntax.");
+                }
                 temp.setY(num);
                 isDouble = true;
             }
             catch (std::invalid_argument e)         // catching invalid argument situations
             {
-                std::cout << e.what() << std::endl;
+                std::cout << e.what();
                 isDouble = false;
             }
             catch (std::out_of_range e)             // catching out of range situations
             {
-                std::cout << e.what() << std::endl;
+                std::cout << e.what();
                 isDouble = false;
             }
 
