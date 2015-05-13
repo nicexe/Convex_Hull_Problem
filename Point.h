@@ -5,8 +5,6 @@
 #ifndef CONVEX_HULL_PROBLEM_POINT_H
 #define CONVEX_HULL_PROBLEM_POINT_H
 
-#endif //CONVEX_HULL_PROBLEM_POINT_H
-
 class Point
 {
     double x, y;
@@ -22,3 +20,6 @@ public:
     void setY(double y);
     void setXY(double x, double y);
 };
+
+#endif //CONVEX_HULL_PROBLEM_POINT_H
+

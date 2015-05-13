@@ -25,3 +25,8 @@ bool is_double(const std::string &s)
     std::regex rr("((\\+|-)?[[:digit:]]+)(\\.(([[:digit:]]+)?))?");
     return (std::regex_match(s, rr));
 }
+
+bool compareXOfPoints(Point point1, Point point2)
+{
+    return point1.getX() < point2.getX();
+}

@@ -7,7 +7,7 @@
 #ifndef CONVEX_HULL_PROBLEM_MENU_H
 #define CONVEX_HULL_PROBLEM_MENU_H
 
-#endif //CONVEX_HULL_PROBLEM_MENU_H
-
 std::string menu();
 void showMenu();
+
+#endif //CONVEX_HULL_PROBLEM_MENU_H
