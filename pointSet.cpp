@@ -185,8 +185,9 @@ void fillWithUserPoints()
 
 void fillWithRandomPoints()
 {
+    long long int seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::uniform_real_distribution<double> unif(lowerBound, upperBound);
-    std::default_random_engine dre;
+    std::default_random_engine dre (seed);
 
     unsigned long long numberOfPoints;
     std::string input = "a";
