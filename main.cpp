@@ -34,14 +34,6 @@ int main()
 
             double seconds = std::difftime(timerEnd, timerStart);
             std::cout << "Time: " << seconds;
-
-            std::cout << "\npress enter\n";
-            userInput();
-
-            for (unsigned long long int i = 0; i < temp.size(); ++i)
-            {
-                std::cout << "\nPoint #" << i << "\nx: " << temp.at(i).getX() << "\ny: " << temp.at(i).getY() << "\n\n";
-            }
         }
         else if (option.compare("2")==0)
         {

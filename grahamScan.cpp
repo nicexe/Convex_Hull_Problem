@@ -2,7 +2,6 @@
 // Created by Nicolas Tsagarides on 4/12/15.
 //
 
-#include <iostream>
 #include "grahamScan.h"
 
 std::vector<Point> upperHull;
@@ -72,8 +71,6 @@ std::vector<Point> grahamScanConvexHull()
     fillUpperHull();
     fillLowerHull();
 
-    std::cout << "\nUpper hull size: " << upperHull.size() << "\nLower hull size: " << lowerHull.size();
-
     if (lowerHull.size()>2)
     {
         for (unsigned long long int i = 1; i < lowerHull.size()-1; ++i)
@@ -81,8 +78,6 @@ std::vector<Point> grahamScanConvexHull()
             upperHull.push_back(lowerHull.at(i));
         }
     }
-
-    std::cout << "\nConvex hull size: " << upperHull.size() << std::endl;
 
     return upperHull;
 }
