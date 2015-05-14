@@ -2,6 +2,7 @@
 // Created by Nicolas Tsagarides on 4/12/15.
 //
 
+#include <iostream>
 #include "grahamScan.h"
 
 std::vector<Point> upperHull;
@@ -35,9 +36,10 @@ void fillUpperHull()
 
         while ( (upperHull.size()>2) && (!rightTurn(upperHull.at(upperHull.size()-3), upperHull.at(upperHull.size()-2), upperHull.at(upperHull.size()-1))) )
         {
-            Point temp = upperHull.back();
-            upperHull.pop_back();
-            upperHull.push_back(temp);
+            Point temp = upperHull.back();  // saving the last element
+            upperHull.pop_back();           // popping the last element
+            upperHull.pop_back();           // popping the element before the last
+            upperHull.push_back(temp);      // putting the last element back
         }
     }
 }
@@ -52,13 +54,14 @@ void fillLowerHull()
 //    for (unsigned long long int i = grahamScanPointSet.size()-3; i >= 0; --i)
     for (std::vector<Point>::reverse_iterator rit = grahamScanPointSet.rbegin()-2; rit!=grahamScanPointSet.rend(); ++rit)
     {
-        upperHull.push_back(*rit);
+        lowerHull.push_back(*rit);
 
         while ( (lowerHull.size()>2) && (!rightTurn(lowerHull.at(lowerHull.size()-3), lowerHull.at(lowerHull.size()-2), lowerHull.at(lowerHull.size()-1))) )
         {
-            Point temp = upperHull.back();
-            upperHull.pop_back();
-            upperHull.push_back(temp);
+            Point temp = lowerHull.back();
+            lowerHull.pop_back();
+            lowerHull.pop_back();
+            lowerHull.push_back(temp);
         }
     }
 
@@ -69,12 +72,17 @@ std::vector<Point> grahamScanConvexHull()
     fillUpperHull();
     fillLowerHull();
 
+    std::cout << "\nUpper hull size: " << upperHull.size() << "\nLower hull size: " << lowerHull.size();
+
     if (lowerHull.size()>2)
     {
-        for (unsigned long long int i = 1; i < lowerHull.size()-2; ++i)
+        for (unsigned long long int i = 1; i < lowerHull.size()-1; ++i)
         {
             upperHull.push_back(lowerHull.at(i));
         }
     }
+
+    std::cout << "\nConvex hull size: " << upperHull.size() << std::endl;
+
     return upperHull;
 }
